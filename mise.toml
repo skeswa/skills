@@ -1,0 +1,10 @@
+[tools]
+node = "24"
+
+[tasks.install]
+description = "Install dev dependencies"
+run = "npm ci"
+
+[tasks.fmt]
+description = "Format Markdown and JSON with oxfmt"
+run = "npx oxfmt ."

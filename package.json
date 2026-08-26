@@ -5,12 +5,7 @@
   "keywords": [],
   "license": "MIT",
   "author": "",
-  "main": "index.js",
-  "scripts": {
-    "fmt": "oxfmt"
-  },
   "devDependencies": {
     "oxfmt": "^0.47.0"
-  },
-  "packageManager": "pnpm@10.14.0"
+  }
 }

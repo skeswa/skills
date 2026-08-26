@@ -26,10 +26,17 @@ Body below the frontmatter is the prompt Claude follows when the skill fires. Ke
 
 ## Tooling
 
-This is a content repo, but it uses **pnpm** (pinned via `packageManager` in `package.json`) and **[oxfmt](https://github.com/oxc-project/oxc)** for formatting Markdown/JSON. Run before committing:
+This is a content repo, but it uses **[mise](https://mise.jdx.dev/)** to pin the toolchain (Node, via `mise.toml`) and to run tasks, **npm** for dependencies, and **[oxfmt](https://github.com/oxc-project/oxc)** for formatting Markdown/JSON. Run before committing:
 
 ```bash
-pnpm fmt   # → oxfmt, formats per .oxfmtrc.json
+mise run fmt       # → npx oxfmt ., formats per .oxfmtrc.json
 ```
 
-Use `pnpm` (not `npm`/`yarn`) for any dependency changes so the lockfile stays consistent.
+First time in a fresh clone:
+
+```bash
+mise install       # installs the pinned Node
+mise run install   # → npm ci
+```
+
+Use `npm` (not `pnpm`/`yarn`) for dependency changes so `package-lock.json` stays consistent, and add new commands as `[tasks.*]` entries in `mise.toml` rather than `scripts` in `package.json`.
